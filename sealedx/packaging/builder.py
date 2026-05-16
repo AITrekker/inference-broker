@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import shutil
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from sealedx.packaging.models import WorkflowPackage
@@ -57,7 +57,7 @@ def package(
         output_schema_hash=hash_canonical_json(output_schema),
         required_provider=required_provider,
         required_models=required_models,
-        created_at=datetime.now(timezone.utc),
+        created_at=datetime.now(UTC),
     )
 
     atomic_write_text(pkg_dir / "prompt.md", prompt_text)

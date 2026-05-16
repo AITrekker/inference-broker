@@ -4,10 +4,8 @@ from __future__ import annotations
 
 import json
 import os
-import sys
 from decimal import Decimal
 from pathlib import Path
-from typing import Optional
 
 import typer
 
@@ -80,10 +78,10 @@ def vendor_package(
     input_schema: Path = typer.Option(..., "--input-schema", exists=True, dir_okay=False),
     output_schema: Path = typer.Option(..., "--output-schema", exists=True, dir_okay=False),
     version: str = typer.Option("0.1.0", "--version"),
-    publisher: Optional[str] = typer.Option(None, "--publisher"),
-    license: Optional[str] = typer.Option(None, "--license"),
-    require_provider: Optional[str] = typer.Option(None, "--require-provider"),
-    require_models: Optional[str] = typer.Option(
+    publisher: str | None = typer.Option(None, "--publisher"),
+    license: str | None = typer.Option(None, "--license"),
+    require_provider: str | None = typer.Option(None, "--require-provider"),
+    require_models: str | None = typer.Option(
         None,
         "--require-models",
         help="Comma-separated list of model IDs the package requires.",
@@ -124,7 +122,7 @@ def customer_grant(
     model: str = typer.Option(..., "--model"),
     budget_usd: float = typer.Option(..., "--budget-usd"),
     expires_in: str = typer.Option(..., "--expires-in", help="e.g. 1h, 30m, 2d"),
-    allow_models: Optional[str] = typer.Option(None, "--allow-models"),
+    allow_models: str | None = typer.Option(None, "--allow-models"),
     json_out: bool = typer.Option(False, "--json"),
 ) -> None:
     """Issue a bounded execution grant. Provider credentials stay in the env."""
@@ -156,7 +154,7 @@ def broker_execute(
     package_id: str = typer.Option(..., "--package-id"),
     grant_id: str = typer.Option(..., "--grant-id"),
     input: Path = typer.Option(..., "--input", exists=True, dir_okay=False),
-    out: Optional[Path] = typer.Option(None, "--out", help="Optional explicit output path."),
+    out: Path | None = typer.Option(None, "--out", help="Optional explicit output path."),
     json_out: bool = typer.Option(False, "--json"),
 ) -> None:
     """Execute a package against a grant with a given input. Always emits a signed receipt."""

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import uuid
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from decimal import Decimal
 from typing import Any
 
@@ -32,7 +32,7 @@ from sealedx.providers.registry import get_adapter
 from sealedx.receipts.issuer import issue_receipt
 from sealedx.receipts.models import ExecutionReceipt, ReceiptStatus
 from sealedx.schemas.validate import SchemaValidationError, validate
-from sealedx.security.hashing import hash_canonical_json, hash_text
+from sealedx.security.hashing import hash_canonical_json
 from sealedx.security.keys import load_or_create_broker_keypair
 from sealedx.security.redaction import get_logger
 from sealedx.storage.paths import (
@@ -100,7 +100,7 @@ def execute(
     failure during receipt persistence).
     """
 
-    started_at = datetime.now(timezone.utc)
+    started_at = datetime.now(UTC)
     execution_id = _new_execution_id()
     keypair = load_or_create_broker_keypair(keys_dir())
 
@@ -130,7 +130,7 @@ def execute(
     }
 
     def fail(status: ReceiptStatus, *, output: dict[str, Any] | None = None) -> BrokerExecution:
-        base_fields["completed_at"] = datetime.now(timezone.utc)
+        base_fields["completed_at"] = datetime.now(UTC)
         base_fields["status"] = status
         if output is not None:
             base_fields["output_hash"] = hash_canonical_json(output)
@@ -204,7 +204,7 @@ def execute(
         # Pre-charge budget check
         try:
             charge(grant, cost)
-        except SealedxError as e:
+        except SealedxError:
             log.warning("budget exceeded after provider call")
             return fail(ReceiptStatus.budget_exceeded)
 
@@ -222,7 +222,7 @@ def execute(
             return fail(ReceiptStatus.invalid_output, output=output)
 
         # Success
-        base_fields["completed_at"] = datetime.now(timezone.utc)
+        base_fields["completed_at"] = datetime.now(UTC)
         base_fields["output_hash"] = hash_canonical_json(output)
         base_fields["status"] = ReceiptStatus.succeeded
         receipt = issue_receipt(keypair=keypair, receipt_fields=base_fields)

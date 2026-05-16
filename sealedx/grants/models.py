@@ -6,7 +6,7 @@ from the environment. See docs/protocol.md §2.
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from decimal import Decimal
 from enum import Enum
 
@@ -44,7 +44,7 @@ class ExecutionGrant(BaseModel):
         """Compute the effective status without mutating ``self``."""
         if self.status == GrantStatus.revoked:
             return GrantStatus.revoked
-        ts = now or datetime.now(timezone.utc)
+        ts = now or datetime.now(UTC)
         if ts >= self.expires_at:
             return GrantStatus.expired
         if self.spent_usd >= self.budget_usd:

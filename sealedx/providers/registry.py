@@ -19,7 +19,8 @@ def get_adapter(provider: str, *, package_name: str | None = None) -> ProviderAd
         except ImportError as e:  # pragma: no cover — exercised only when openai sdk is missing
             raise ProviderError(
                 "provider_unavailable",
-                "openai adapter requires the optional 'openai' extra: pip install 'sealedx[openai]'",
+                "openai adapter requires the optional 'openai' extra: "
+                "pip install 'sealedx[openai]'",
             ) from e
         return OpenAIAdapter()
     if provider == "anthropic":

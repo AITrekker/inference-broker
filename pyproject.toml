@@ -63,9 +63,13 @@ target-version = "py311"
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "N", "S", "ANN"]
 ignore = [
-    "ANN101", # missing type annotation for self
-    "ANN102", # missing type annotation for cls
+    "ANN401", # `Any` is fine for genuinely unknown JSON shapes
+    "B008",   # function-call defaults are the canonical typer pattern
     "S101",   # asserts ok in tests
+    "S603",   # subprocess calls audited
+    "S607",   # partial executable paths in scripts ok
+    "UP042",  # `str, Enum` is still widely used; StrEnum migration deferred
+    "S112",   # best-effort list operations intentionally swallow per-row errors
 ]
 
 [tool.ruff.lint.per-file-ignores]

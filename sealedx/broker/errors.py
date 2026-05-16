@@ -39,7 +39,10 @@ class GrantRevokedError(SealedxError):
 
 class BudgetExceededError(SealedxError):
     def __init__(self, grant_id: str) -> None:
-        super().__init__("budget_exceeded", f"grant {grant_id} budget would be exceeded by this call")
+        super().__init__(
+            "budget_exceeded",
+            f"grant {grant_id} budget would be exceeded by this call",
+        )
 
 
 class GrantPackageMismatchError(SealedxError):

@@ -48,7 +48,8 @@ class AnthropicAdapter(ProviderAdapter):
     def complete(self, request: ProviderRequest) -> ProviderResponse:
         system = request.prompt
         if request.response_schema is not None:
-            system = system + _JSON_INSTRUCTION + json.dumps(request.response_schema, sort_keys=True)
+            schema_text = json.dumps(request.response_schema, sort_keys=True)
+            system = system + _JSON_INSTRUCTION + schema_text
         try:
             resp = self._client.messages.create(
                 model=request.model,

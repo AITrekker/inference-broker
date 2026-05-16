@@ -11,7 +11,6 @@ from nacl.exceptions import BadSignatureError
 from nacl.signing import VerifyKey
 
 from sealedx.packaging.registry import (
-    package_references,
     read_input_schema,
     read_output_schema,
     read_prompt,

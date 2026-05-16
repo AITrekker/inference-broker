@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 
 from sealedx.broker.errors import (
@@ -16,7 +16,6 @@ from sealedx.broker.errors import (
 )
 from sealedx.grants.models import ExecutionGrant, GrantStatus
 from sealedx.storage.paths import atomic_write_json, grants_dir, read_json
-
 
 _DURATION_RE = re.compile(r"^\s*(\d+)\s*([smhd])\s*$", re.IGNORECASE)
 
@@ -45,7 +44,7 @@ def create_grant(
     allowed_models: list[str] | None = None,
 ) -> ExecutionGrant:
     grant_id = "grant_" + uuid.uuid4().hex
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     grant = ExecutionGrant(
         grant_id=grant_id,
         provider=provider,

@@ -16,7 +16,7 @@ from sealedx.providers.base import (
     ProviderRequest,
     ProviderResponse,
 )
-from sealedx.providers.cost_table import OPENAI_COSTS, estimate
+from sealedx.providers.cost_table import estimate
 from sealedx.security.redaction import get_logger, redact_error_message, unsafe_debug_prompt_enabled
 
 log = get_logger("providers.openai")
