@@ -1,0 +1,5 @@
+{
+  "task": "Summarize the article in three sentences for a non-technical reader.",
+  "candidate_output": "The article describes a new approach to delegated AI workflow execution. It proposes a protocol where vendors keep their prompts private while customers retain control over inference spend. A trusted broker mediates the flow and emits signed receipts for audit.",
+  "candidate_model": "claude-sonnet-4-5"
+}

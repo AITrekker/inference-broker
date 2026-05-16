@@ -1,0 +1,12 @@
+{
+  "verdict": "pass",
+  "score": 4.2,
+  "criteria": {
+    "faithfulness": 5,
+    "concision": 4,
+    "audience_fit": 4,
+    "factual_accuracy": 5,
+    "coverage": 3
+  },
+  "rationale": "Accurate three-sentence summary, accessible for a non-technical reader. Coverage of mechanics is adequate; one notable detail (auditability) appears but could be expanded."
+}

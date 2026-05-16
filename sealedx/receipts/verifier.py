@@ -17,7 +17,6 @@ from sealedx.packaging.registry import (
     read_prompt,
 )
 from sealedx.receipts.canonical import canonical_json_bytes
-from sealedx.receipts.issuer import _serializable
 from sealedx.security.hashing import hash_canonical_json, hash_text
 from sealedx.security.keys import load_verify_key
 from sealedx.storage.paths import keys_dir, read_json, results_dir
@@ -50,7 +49,7 @@ def _verify_signature(
         return False, "receipt missing broker_signature"
     payload = dict(receipt_fields)
     payload.pop("broker_signature")
-    canonical = canonical_json_bytes(_serializable(payload))
+    canonical = canonical_json_bytes(payload)
     try:
         verify_key.verify(canonical, base64.b64decode(sig_b64))
     except BadSignatureError:

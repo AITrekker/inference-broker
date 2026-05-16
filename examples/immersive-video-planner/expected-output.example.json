@@ -1,0 +1,8 @@
+{
+  "_comment": "Reference output for the Roman Colosseum input. The mock provider returns this exact object via mock-fixtures/ff0a520e93223f12.json. A real provider's output would differ in wording but should match the same schema.",
+  "title": "Building the Colosseum: Rome's Greatest Stage",
+  "scenes": "<see mock-fixtures/ff0a520e93223f12.json>",
+  "scene_count": 6,
+  "duration_seconds": 90,
+  "interactivity_level": "high"
+}

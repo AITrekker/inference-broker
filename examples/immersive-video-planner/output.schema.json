@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ImmersiveVideoPlannerOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "scenes", "assets", "timeline"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scene_id",
+          "duration_seconds",
+          "visual_description",
+          "camera_motion",
+          "map_layers",
+          "interactive_elements",
+          "narration"
+        ],
+        "properties": {
+          "scene_id": {
+            "type": "string",
+            "pattern": "^s\\d{3}$"
+          },
+          "duration_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 600
+          },
+          "visual_description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "camera_motion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "map_layers": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "interactive_elements": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "narration": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "timeline": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

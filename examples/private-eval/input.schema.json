@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PrivateEvalInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task", "candidate_output"],
+  "properties": {
+    "task": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "candidate_output": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8000
+    },
+    "candidate_model": {
+      "type": "string"
+    }
+  }
+}

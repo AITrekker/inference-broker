@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PrivateEvalOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["verdict", "score", "criteria", "rationale"],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": ["pass", "borderline", "fail"]
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "criteria": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 5
+      }
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 600
+    }
+  }
+}

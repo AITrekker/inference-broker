@@ -184,7 +184,7 @@ def broker_execute(
         )
         return
 
-    typer.echo(f"Execution {result.receipt.execution_id}: {result.receipt.status}")
+    typer.echo(f"Execution {result.receipt.execution_id}: {result.receipt.status.value}")
     typer.echo(f"  receipt : {result.receipt_path}")
     typer.echo(f"  result  : {result.result_path}")
     typer.echo(f"  tokens  : in={result.receipt.tokens_in} out={result.receipt.tokens_out}")

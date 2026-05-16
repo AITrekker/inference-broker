@@ -1,0 +1,83 @@
+{
+  "title": "Building the Colosseum: Rome's Greatest Stage",
+  "scenes": [
+    {
+      "scene_id": "s001",
+      "duration_seconds": 12,
+      "visual_description": "Aerial reveal of ancient Rome circa 70 CE; the Colosseum site is a marshy lake fed by Nero's Domus Aurea fountains.",
+      "camera_motion": "slow descent from above",
+      "map_layers": ["roman-rome-3d", "topography", "river-tiber"],
+      "interactive_elements": ["tap-to-show-pre-construction-site"],
+      "narration": "Before it became Rome's greatest stage, this site was a private lake at the heart of an emperor's palace."
+    },
+    {
+      "scene_id": "s002",
+      "duration_seconds": 18,
+      "visual_description": "Vespasian's engineers drain the lake; foundation trenches are excavated and concrete piers are poured.",
+      "camera_motion": "orbit around foundation works",
+      "map_layers": ["foundation-cutaway", "construction-grid"],
+      "interactive_elements": ["scrub-timeline-72-to-75-CE", "tap-to-inspect-foundation-depth"],
+      "narration": "Vespasian's engineers drained the lake and laid 12-meter-deep concrete foundations — a feat unmatched in the ancient world."
+    },
+    {
+      "scene_id": "s003",
+      "duration_seconds": 20,
+      "visual_description": "Travertine blocks rise tier by tier; iron clamps and wooden cranes lift stone into place.",
+      "camera_motion": "vertical dolly tracking the rising structure",
+      "map_layers": ["amphitheatre-3d-model", "crane-armatures", "stone-quarry-supply-line"],
+      "interactive_elements": ["tap-a-block-to-see-its-quarry-of-origin"],
+      "narration": "Each tier required 100,000 cubic meters of travertine, hauled 30 kilometers from quarries at Tibur."
+    },
+    {
+      "scene_id": "s004",
+      "duration_seconds": 16,
+      "visual_description": "Cutaway of the hypogeum: trap doors, animal lifts, and the wooden arena floor.",
+      "camera_motion": "interior reveal with floor-removal transition",
+      "map_layers": ["hypogeum-cutaway", "arena-floor", "lift-mechanisms"],
+      "interactive_elements": ["toggle-floor-on-off", "drag-a-lift-to-raise-an-animal-cage"],
+      "narration": "Beneath the sand floor, an ingenious wooden machine raised animals, scenery, and gladiators on cue."
+    },
+    {
+      "scene_id": "s005",
+      "duration_seconds": 14,
+      "visual_description": "Inaugural games of 80 CE: the velarium awning unfurls, 50,000 spectators take their seats.",
+      "camera_motion": "wide pull-back from arena floor to stadium-wide hero shot",
+      "map_layers": ["velarium-rigging", "spectator-crowd-volumetrics"],
+      "interactive_elements": ["tap-a-section-to-see-its-social-class"],
+      "narration": "When the Colosseum opened in 80 CE, Titus celebrated with one hundred days of games."
+    },
+    {
+      "scene_id": "s006",
+      "duration_seconds": 10,
+      "visual_description": "Time-lapse from completion through medieval reuse to modern conservation.",
+      "camera_motion": "slow time-lapse rotation",
+      "map_layers": ["amphitheatre-3d-model", "modern-rome-overlay"],
+      "interactive_elements": ["scrub-2000-year-timeline"],
+      "narration": "Two thousand years later, the Colosseum still stands — partly ruin, partly machine, entirely Rome."
+    }
+  ],
+  "assets": [
+    "amphitheatre-3d-model",
+    "arena-floor",
+    "construction-grid",
+    "crane-armatures",
+    "foundation-cutaway",
+    "hypogeum-cutaway",
+    "lift-mechanisms",
+    "modern-rome-overlay",
+    "river-tiber",
+    "roman-rome-3d",
+    "spectator-crowd-volumetrics",
+    "stone-quarry-supply-line",
+    "topography",
+    "velarium-rigging"
+  ],
+  "timeline": [
+    "00:00 — Aerial reveal of pre-construction site",
+    "00:12 — Foundations laid (72–75 CE)",
+    "00:30 — Tiers rise in travertine (75–79 CE)",
+    "00:50 — Hypogeum machinery revealed",
+    "01:06 — Inaugural games of 80 CE",
+    "01:20 — Two-thousand-year time-lapse"
+  ]
+}

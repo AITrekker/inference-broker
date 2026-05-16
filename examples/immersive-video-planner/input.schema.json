@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ImmersiveVideoPlannerInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["topic", "audience", "duration_seconds", "interactivity_level", "style"],
+  "properties": {
+    "topic": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "duration_seconds": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 600
+    },
+    "interactivity_level": {
+      "type": "string",
+      "enum": ["none", "low", "medium", "high"]
+    },
+    "style": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    }
+  }
+}
