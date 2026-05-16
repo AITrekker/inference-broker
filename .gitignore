@@ -33,3 +33,4 @@ secrets/
 
 # Handoff prompt — kept locally, not part of the published repo
 sealed_workflow_claude_code_handoff.md
+status.md
