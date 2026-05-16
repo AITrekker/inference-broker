@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Tooling
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets — never commit
+.env
+.env.local
+*.pem
+*.key
+secrets/
+
+# Local sealedx state (packages, grants, receipts written by the CLI)
+.sealedx/
+~/.sealedx/
+
+# Handoff prompt — kept locally, not part of the published repo
+sealed_workflow_claude_code_handoff.md
